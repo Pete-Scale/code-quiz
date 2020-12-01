@@ -18,8 +18,12 @@ body {
 .container {
     max-width: 80%;
     background-color: mintcream;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+#question {
+    font-weight: 500;
 }
 
 .answer-buttons {
@@ -37,9 +41,17 @@ body {
 
 #start-btn {
     text-align: center;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    font-weight: 700;
     background-color: rgb(142, 247, 156);
 }
 
 #start-btn:hover {
     background-color: rgb(131, 224, 143);
 }
+
+/* .hide {
+    display: none;
+} */
