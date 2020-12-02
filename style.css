@@ -1,20 +1,25 @@
+/* Sets everything to border-box */
 *, *::before, *::after {
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Styles the header of the page */
 h1 {
     color: mintcream;
 }
 
+
+/* Styles the body of the page */
 body {
     padding: 0;
     margin: 0;
     display: grid;
     justify-items: center;
     background-color: darkslategray;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Styles the main container the instructions and quiz are in */
 .container {
     max-width: 50%;
     background-color: mintcream;
@@ -22,36 +27,46 @@ body {
     padding: 1rem;
 }
 
+/* Styles the question */
 #question {
     font-weight: 500;
 }
 
-.answer-buttons {
+/* Styles the layout of the choice buttons */
+#choices-container {
     display: grid;
 }
 
-.btn {
+
+/* Styles the choice buttons */
+.choice-btn {
     text-align: left;
     margin-top: 0.5rem;
 }
 
+/* Changes the mouse cursor to a hand when over any click-able button */
 .btn:hover {
     cursor: pointer;
 }
 
+
+/* Styles the START button */
 #start-btn {
     text-align: center;
     font-size: 1.5rem;
     border-radius: 0.5rem;
     margin-top: 1rem;
+    padding: 0.5rem;
     font-weight: 700;
     background-color: rgb(142, 247, 156);
 }
 
+/* Styles the START button when mouse hovers over it  */
 #start-btn:hover {
     background-color: rgb(131, 224, 143);
 }
 
+/* Hides the quiz container by default */
 .hide {
     display: none;
 }
