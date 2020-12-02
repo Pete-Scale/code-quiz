@@ -45,3 +45,19 @@ var allQuestions = [
         answer: "quiz('over');"
     }
 ]
+
+var startBtn = document.getElementById('start-btn')
+
+startBtn.addEventListener('click', startQuiz)
+
+function startQuiz() {
+    console.log('Started')
+}
+
+function nextQuestion(){
+
+}
+
+function selectAnswer(){
+
+}
