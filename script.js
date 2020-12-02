@@ -52,6 +52,7 @@ startBtn.addEventListener('click', startQuiz)
 
 function startQuiz() {
     console.log('Started')
+    startBtn.classList.add('hide')
 }
 
 function nextQuestion(){
