@@ -47,12 +47,15 @@ var allQuestions = [
 ]
 
 var startBtn = document.getElementById('start-btn')
+var instructions = document.getElementById('instructions')
+
 
 startBtn.addEventListener('click', startQuiz)
 
 function startQuiz() {
     console.log('Started')
     startBtn.classList.add('hide')
+    instructions.classList.add('hide')
 }
 
 function nextQuestion(){
