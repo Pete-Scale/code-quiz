@@ -48,6 +48,7 @@ var allQuestions = [
 
 var startBtn = document.getElementById('start-btn')
 var instructions = document.getElementById('instructions')
+var quizContainer = document.getElementById('quiz-container')
 
 
 startBtn.addEventListener('click', startQuiz)
@@ -56,6 +57,7 @@ function startQuiz() {
     console.log('Started')
     startBtn.classList.add('hide')
     instructions.classList.add('hide')
+    quizContainer.classList.remove('hide')
 }
 
 function nextQuestion(){
