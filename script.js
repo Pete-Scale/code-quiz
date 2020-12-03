@@ -46,10 +46,12 @@ var quiz = [
     }
 ]
 
-var startBtn = document.getElementById('start-btn')
-var instructions = document.getElementById('instructions')
-var quizContainer = document.getElementById('quiz-container')
-var questionElement = document.getElementById('question')
+var startBtn = document.getElementById('start-btn');
+var nextBtn = document.getElementById('next-btn');
+var finishBtn = document.getElementById('finish-btn');
+var instructions = document.getElementById('instructions');
+var quizContainer = document.getElementById('quiz-container');
+var questionElement = document.getElementById('question');
 var currentQuestion = 0;
 
 
@@ -70,11 +72,17 @@ function getQuestion (quiz_idx) {
 // getQuestion(0);
 // getQuestion(1);
 
-function nextQuestion(){
+function nextQuestion() {
+    // Question before last, prepare for final question
+    if ((currentQuestion + 1) === quiz.length) {
+    //Hide next btn show finish btn
+        nextBtn.classList.add('hide');
+        finishBtn.classList.remove('hide');
+    }
     //Get next question
     getQuestion(currentQuestion);
     //Update our current question number
-    currentQuestion +=1;
+    currentQuestion +=1;   
 }
 
 function startQuiz() {
