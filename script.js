@@ -129,7 +129,9 @@ function finishQuiz() {
 
 function highScores(event){
     event.preventDefault();
-    console.log("High Scores")
+    var nameInput = localStorage.getItem('nameInput');
+    var scoreNum = localStorage.getItem('scoreNum');
+    console.log(nameInput, scoreNum)
 }
 
 function displayMessage(type, message) {
@@ -144,9 +146,10 @@ function submitNameScore(event){
         displayMessage("error", "Name cannot be blank");
     } else {
         displayMessage("success", "Registered successfully");
-        // localStorage.setItem()
-        console.log(nameInput);
-        console.log(scoreCount);
+        localStorage.setItem('nameInput', nameInput);
+        localStorage.setItem('scoreNum', scoreCount);
+        // console.log(nameInput);
+        // console.log(scoreCount);
     }
     
 }
