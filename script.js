@@ -57,6 +57,7 @@ var scoreElement = document.getElementById('scoreNum');
 var currentQuestion = 0;
 var scoreCount = 0;
 var finishedForm = document.getElementById('finishedForm');
+var msgAlert = document.getElementById("msgAlert");
 
 function getQuestion (quizIndex) {
     //Get our quiz object from our quiz array by using the objects position in the array
@@ -70,16 +71,6 @@ function getQuestion (quizIndex) {
     }
 }
 
-function nextQuestion() {
-    //Update our current question number
-    currentQuestion +=1;  
-    //Get next question
-    getQuestion(currentQuestion);
-    //Re-hide next button
-    nextBtn.classList.add('hide');
-    feedback.classList.add('hide')
-}
-
 function startQuiz() {
     console.log('Started');
     startBtn.classList.add('hide');
@@ -89,21 +80,14 @@ function startQuiz() {
     getQuestion(currentQuestion);
 }
 
-function finishQuiz() {
-    quizContainer.classList.add('hide');
-    finishedForm.classList.remove('hide')
-    console.log("I'm finished")
-}
-
-function highScores(event){
-    event.preventDefault();
-    console.log("High Scores")
-}
-
-function submitNameScore(event){
-    event.preventDefault();
-    console.log(document.getElementById('nameInput').value);
-    console.log(scoreCount);
+function nextQuestion() {
+    //Update our current question number
+    currentQuestion +=1;  
+    //Get next question
+    getQuestion(currentQuestion);
+    //Re-hide next button
+    nextBtn.classList.add('hide');
+    feedback.classList.add('hide')
 }
 
 function choiceSelection(choiceIndex) {
@@ -136,3 +120,34 @@ function choiceSelection(choiceIndex) {
     }
     console.log(quizObject.choices[choiceIndex], quizObject.answer);
 } 
+
+function finishQuiz() {
+    quizContainer.classList.add('hide');
+    finishedForm.classList.remove('hide')
+    console.log("I'm finished")
+}
+
+function highScores(event){
+    event.preventDefault();
+    console.log("High Scores")
+}
+
+function displayMessage(type, message) {
+    msgAlert.textContent = message;
+    msgAlert.setAttribute("class", type);
+}
+
+function submitNameScore(event){
+    event.preventDefault();
+    var nameInput = document.getElementById('nameInput').value;
+    if (nameInput === "") {
+        displayMessage("error", "Name cannot be blank");
+    } else {
+        displayMessage("success", "Registered successfully");
+        // localStorage.setItem()
+        console.log(nameInput);
+        console.log(scoreCount);
+    }
+    
+}
+

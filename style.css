@@ -128,6 +128,12 @@ body {
     margin-bottom: 1rem;
 }
 
+#msgAlert {
+    margin: 0.2rem;
+    font-style: italic;
+    text-align: center;
+}
+
 /* Hides the quiz container, next button and finish button by default and is called on to hide other elements through JS */
 .hide {
     display: none;
