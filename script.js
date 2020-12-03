@@ -57,7 +57,7 @@ var currentQuestion = 0;
 function getQuestion (quiz_idx) {
     // Get the our quiz object from our quiz array by using the objects position in the array
     var quiz_object = quiz[quiz_idx];
-    
+
     console.log(quiz_object);
     // assign quiz_object values to our html form
 }
@@ -76,6 +76,10 @@ function startQuiz() {
     startBtn.classList.add('hide')
     instructions.classList.add('hide')
     quizContainer.classList.remove('hide')
+}
+
+function choiceSelection(event) {
+    console.log(event)
 }
 
 startBtn.addEventListener('click', startQuiz)
