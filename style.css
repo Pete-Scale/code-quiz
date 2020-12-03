@@ -8,6 +8,28 @@ h1 {
     color: mintcream;
 }
 
+#scoreTime {
+    display: inline-flex;
+    justify-content: space-between;
+    max-width: 50%;
+    min-width: 50%;
+    font-size: 0.5rem;
+    font-weight: 500;
+    background-color: mintcream;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+.scoreTimeDivs {
+    display: inline-flex;
+}
+
+.scoreTimePs {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin: 0rem;
+}
 
 /* Styles the body of the page */
 body {

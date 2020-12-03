@@ -54,6 +54,7 @@ var instructions = document.getElementById('instructions');
 var quizContainer = document.getElementById('quiz-container');
 var questionElement = document.getElementById('question');
 var currentQuestion = 0;
+var score = 0;
 
 
 function getQuestion (quizIndex) {
