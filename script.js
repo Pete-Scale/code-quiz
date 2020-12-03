@@ -49,6 +49,7 @@ var quiz = [
 var startBtn = document.getElementById('start-btn');
 var nextBtn = document.getElementById('next-btn');
 var finishBtn = document.getElementById('finish-btn');
+var feedback = document.getElementById('feedback');
 var instructions = document.getElementById('instructions');
 var quizContainer = document.getElementById('quiz-container');
 var questionElement = document.getElementById('question');
@@ -74,6 +75,7 @@ function nextQuestion() {
     getQuestion(currentQuestion);
     //Re-hide next button
     nextBtn.classList.add('hide');
+    feedback.classList.add('hide')
 }
 
 function startQuiz() {
@@ -93,10 +95,13 @@ function choiceSelection(choiceIndex) {
     //Get quiz_object for current question to verify answer
     var quizObject = quiz[currentQuestion];
 
-    // user answer quiz_object.choices[choiceIndex]
+    feedback.classList.remove('hide')
+    //Feedback correct or wrong after each choice
     if (quizObject.choices[choiceIndex] === quizObject.answer) {
+        feedback.innerText = 'Correct!'
         console.log('Correct!')
     } else {
+        feedback.innerText = 'Wrong!'
         console.log('Wrong!')
     }
     for (var i = 0; i < quizObject.choices.length; i++) {

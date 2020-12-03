@@ -22,6 +22,7 @@ body {
 /* Styles the main container the instructions and quiz are in */
 .container {
     max-width: 50%;
+    min-width: 50%;
     background-color: mintcream;
     border-radius: 0.5rem;
     padding: 1rem;
@@ -63,7 +64,37 @@ body {
 
 /* Styles the START button when mouse hovers over it  */
 #start-btn:hover {
-    background-color: rgb(131, 224, 143);
+    background-color: rgb(74, 221, 94);
+}
+
+#controlsFooter {
+    display: inline-flex;
+}
+
+.controls {
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    background-color: rgb(244, 247, 121);
+}
+
+#next-btn:hover {
+    background-color: rgb(230, 233, 49);
+}
+
+#finish-btn {
+    background-color: rgb(250, 128, 107);
+}
+
+#finish-btn:hover {
+    background-color: rgb(224, 75, 49);
+}
+
+#feedback {
+    font-style: italic;
+    margin-left: 1rem;
 }
 
 /* Hides the quiz container, next button and finish button by default and is called on to hide other elements through JS */
