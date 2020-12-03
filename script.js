@@ -60,27 +60,7 @@ var finishedForm = document.getElementById('finishedForm');
 var msgAlert = document.getElementById("msgAlert");
 var highScoresContainer = document.getElementById('highScoresContainer');
 var highScoreList = document.getElementById('highScoreList')
-var highScores = ["Peter", "Dummy", "Bimbo"]
-
-function getHighScores(event){
-    event.preventDefault();
-    var nameInput = localStorage.getItem('nameInput');
-    var scoreNum = localStorage.getItem('scoreNum');
-    if (nameInput === null || scoreNum === null) {
-        return;
-    }
-
-    for (var i = 0; i < highScores.length; i++) {
-        var li = document.createElement('li');
-        li.innerText = highScores[i];
-        highScoreList.appendChild(li);
-    }
-
-    highScoresContainer.classList.remove('hide');
-    finishedForm.classList.add('hide');
-    console.log(nameInput, scoreNum);
-
-}
+var highScoresArray = JSON.parse(localStorage.getItem('nameInput')) || [];
 
 function getQuestion (quizIndex) {
     //Get our quiz object from our quiz array by using the objects position in the array
@@ -150,8 +130,6 @@ function finishQuiz() {
     console.log("I'm finished")
 }
 
-
-
 function displayMessage(type, message) {
     msgAlert.textContent = message;
     msgAlert.setAttribute("class", type);
@@ -164,11 +142,27 @@ function submitNameScore(event){
         displayMessage("error", "Name cannot be blank");
     } else {
         displayMessage("success", "Registered successfully");
-        localStorage.setItem('nameInput', nameInput);
-        localStorage.setItem('scoreNum', scoreCount);
-        // console.log(nameInput);
-        // console.log(scoreCount);
-    }
-    
+        highScoresArray.push(nameInput + " " + scoreCount);
+        localStorage.setItem('nameInput', JSON.stringify(highScoresArray));
+    }  
 }
+
+function getHighScores(event){
+    event.preventDefault();
+    var nameInput = localStorage.getItem('nameInput');
+    if (nameInput === null || scoreNum === null) {
+        return;
+    }
+    for (var i = 0; i < highScoresArray.length; i++) {
+        var li = document.createElement('li');
+        li.innerText = highScoresArray[i];
+        highScoreList.appendChild(li);
+    }
+    //Show high scores
+    highScoresContainer.classList.remove('hide');
+    //Hide finish screen
+    finishedForm.classList.add('hide');
+    console.log(nameInput, scoreNum);
+}
+
 
