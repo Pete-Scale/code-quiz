@@ -78,8 +78,8 @@ function startQuiz() {
     quizContainer.classList.remove('hide')
 }
 
-function choiceSelection(event) {
-    console.log(event)
+function choiceSelection(choiceIndex) {
+    console.log(choiceIndex)
 }
 
 startBtn.addEventListener('click', startQuiz)
