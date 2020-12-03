@@ -50,7 +50,6 @@ var startBtn = document.getElementById('start-btn')
 var instructions = document.getElementById('instructions')
 var quizContainer = document.getElementById('quiz-container')
 var questionElement = document.getElementById('question')
-var choiceBtnElement = document.querySelector('.choice-btn')
 var currentQuestion = 0;
 
 
@@ -60,9 +59,16 @@ function getQuestion (quiz_idx) {
 
     console.log(quiz_object);
     // assign quiz_object values to our html form
+    questionElement.innerText = quiz_object['question'];
+    for (var i = 0; i < quiz_object.choices.length; i++) {
+        var choice = quiz_object.choices[i];
+        console.log(choice);
+        document.getElementById('choice'+ i).innerText = choice;
+    }
+
 }
-getQuestion(0)
-getQuestion(1)
+// getQuestion(0);
+// getQuestion(1);
 
 function nextQuestion(){
     //Get next question
@@ -72,14 +78,13 @@ function nextQuestion(){
 }
 
 function startQuiz() {
-    console.log('Started')
-    startBtn.classList.add('hide')
-    instructions.classList.add('hide')
-    quizContainer.classList.remove('hide')
+    console.log('Started');
+    startBtn.classList.add('hide');
+    instructions.classList.add('hide');
+    quizContainer.classList.remove('hide');
+    nextQuestion()
 }
 
 function choiceSelection(choiceIndex) {
-    console.log(choiceIndex)
-}
-
-startBtn.addEventListener('click', startQuiz)
+    console.log(choiceIndex);
+} 
