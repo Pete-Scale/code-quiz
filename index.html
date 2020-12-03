@@ -45,6 +45,14 @@
                 <p id="feedback" class="hide">feedback</p>
             </div>
         </section>
+        <section id="finishedForm" class="hide">
+            <form method="POST" id="nameForm">
+                <label for="nameInput" id="nameText">Congratulations on completing the quiz! Type in your name and click submit to save your high score!</label>
+                <input type="text" name="nameInput" id="nameInput" value=""><br>
+                <button class="formBtn" onclick="submitNameScore(event)">SUBMIT</button><br>
+                <button class="formBtn" onclick="highScores(event)">HIGH SCORES</button>
+            </form>
+        </section>
     </main>
 
         <button id="start-btn" class="btn" onclick="startQuiz()">START</button>

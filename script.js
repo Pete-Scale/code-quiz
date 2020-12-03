@@ -36,7 +36,7 @@ var quiz = [
     },
     {
         question: "Which of the choices grabs the number 8 from this array? var boo = [1, 2, 3, 4, 5, 6, 7, 8];",
-        choices:  ["boo[8];", "var boo = [8];", "boo[7];", "boo[hoo];"],
+        choices:  ["boo[8];", "var boo = [8];", "boo[7];", "boo[urns];"],
         answer: "boo[7];"
     },
     {
@@ -53,9 +53,10 @@ var instructions = document.getElementById('instructions');
 var quizContainer = document.getElementById('quiz-container');
 var questionElement = document.getElementById('question');
 var feedback = document.getElementById('feedback');
-var scoreElement = document.getElementById('scoreNum')
+var scoreElement = document.getElementById('scoreNum');
 var currentQuestion = 0;
 var scoreCount = 0;
+var finishedForm = document.getElementById('finishedForm');
 
 function getQuestion (quizIndex) {
     //Get our quiz object from our quiz array by using the objects position in the array
@@ -89,7 +90,20 @@ function startQuiz() {
 }
 
 function finishQuiz() {
+    quizContainer.classList.add('hide');
+    finishedForm.classList.remove('hide')
     console.log("I'm finished")
+}
+
+function highScores(event){
+    event.preventDefault();
+    console.log("High Scores")
+}
+
+function submitNameScore(event){
+    event.preventDefault();
+    console.log(document.getElementById('nameInput').value);
+    console.log(scoreCount);
 }
 
 function choiceSelection(choiceIndex) {
@@ -100,6 +114,7 @@ function choiceSelection(choiceIndex) {
     //Feedback correct or wrong after each choice
     if (quizObject.choices[choiceIndex] === quizObject.answer) {
         feedback.innerText = 'Correct!'
+        //Adds 10 to your score for every correct answer
         scoreCount = (scoreCount + 10);
         scoreElement.innerText = scoreCount
     } else {
@@ -120,6 +135,4 @@ function choiceSelection(choiceIndex) {
         nextBtn.classList.remove('hide');
     }
     console.log(quizObject.choices[choiceIndex], quizObject.answer);
-    // correct answer quiz_object.answer
-    // console.log(choiceIndex);
 } 

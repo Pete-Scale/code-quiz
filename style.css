@@ -119,6 +119,15 @@ body {
     margin-left: 1rem;
 }
 
+#nameForm {
+    display: grid;
+    justify-content: center;
+}
+
+#nameText {
+    margin-bottom: 1rem;
+}
+
 /* Hides the quiz container, next button and finish button by default and is called on to hide other elements through JS */
 .hide {
     display: none;
