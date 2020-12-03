@@ -58,6 +58,29 @@ var currentQuestion = 0;
 var scoreCount = 0;
 var finishedForm = document.getElementById('finishedForm');
 var msgAlert = document.getElementById("msgAlert");
+var highScoresContainer = document.getElementById('highScoresContainer');
+var highScoreList = document.getElementById('highScoreList')
+var highScores = ["Peter", "Dummy", "Bimbo"]
+
+function getHighScores(event){
+    event.preventDefault();
+    var nameInput = localStorage.getItem('nameInput');
+    var scoreNum = localStorage.getItem('scoreNum');
+    if (nameInput === null || scoreNum === null) {
+        return;
+    }
+
+    for (var i = 0; i < highScores.length; i++) {
+        var li = document.createElement('li');
+        li.innerText = highScores[i];
+        highScoreList.appendChild(li);
+    }
+
+    highScoresContainer.classList.remove('hide');
+    finishedForm.classList.add('hide');
+    console.log(nameInput, scoreNum);
+
+}
 
 function getQuestion (quizIndex) {
     //Get our quiz object from our quiz array by using the objects position in the array
@@ -127,12 +150,7 @@ function finishQuiz() {
     console.log("I'm finished")
 }
 
-function highScores(event){
-    event.preventDefault();
-    var nameInput = localStorage.getItem('nameInput');
-    var scoreNum = localStorage.getItem('scoreNum');
-    console.log(nameInput, scoreNum)
-}
+
 
 function displayMessage(type, message) {
     msgAlert.textContent = message;
