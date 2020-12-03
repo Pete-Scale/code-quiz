@@ -55,34 +55,25 @@ var questionElement = document.getElementById('question');
 var currentQuestion = 0;
 
 
-function getQuestion (quiz_idx) {
-    // Get the our quiz object from our quiz array by using the objects position in the array
-    var quiz_object = quiz[quiz_idx];
-
-    console.log(quiz_object);
-    // assign quiz_object values to our html form
-    questionElement.innerText = quiz_object['question'];
-    for (var i = 0; i < quiz_object.choices.length; i++) {
-        var choice = quiz_object.choices[i];
-        console.log(choice);
+function getQuestion (quizIndex) {
+    //Get our quiz object from our quiz array by using the objects position in the array
+    var quizObject = quiz[quizIndex];
+    //Assign quiz_object values to our html
+    questionElement.innerText = quizObject['question'];
+    for (var i = 0; i < quizObject.choices.length; i++) {
+        var choice = quizObject.choices[i];
         document.getElementById('choice'+ i).innerText = choice;
+        document.getElementById('choice'+ i).disabled = false;
     }
-
 }
-// getQuestion(0);
-// getQuestion(1);
 
 function nextQuestion() {
-    // Question before last, prepare for final question
-    if ((currentQuestion + 1) === quiz.length) {
-    //Hide next btn show finish btn
-        nextBtn.classList.add('hide');
-        finishBtn.classList.remove('hide');
-    }
+    //Update our current question number
+    currentQuestion +=1;  
     //Get next question
     getQuestion(currentQuestion);
-    //Update our current question number
-    currentQuestion +=1;   
+    //Re-hide next button
+    nextBtn.classList.add('hide');
 }
 
 function startQuiz() {
@@ -90,9 +81,39 @@ function startQuiz() {
     startBtn.classList.add('hide');
     instructions.classList.add('hide');
     quizContainer.classList.remove('hide');
-    nextQuestion()
+    //Start at default, 0, question
+    getQuestion(currentQuestion);
+}
+
+function finishQuiz() {
+    console.log("I'm finished")
 }
 
 function choiceSelection(choiceIndex) {
-    console.log(choiceIndex);
+    //Get quiz_object for current question to verify answer
+    var quizObject = quiz[currentQuestion];
+
+    // user answer quiz_object.choices[choiceIndex]
+    if (quizObject.choices[choiceIndex] === quizObject.answer) {
+        console.log('Correct!')
+    } else {
+        console.log('Wrong!')
+    }
+    for (var i = 0; i < quizObject.choices.length; i++) {
+        var choice = quizObject.choices[i];
+        document.getElementById('choice'+ i).disabled = true;
+    }
+    //Question before last, prepare for final question
+    if ((currentQuestion + 1) === quiz.length) {
+        //Show finish button
+        finishBtn.classList.remove('hide');
+        //Hide next button
+        nextBtn.classList.add('hide');
+    } else {
+        //Show next button
+        nextBtn.classList.remove('hide');
+    }
+    console.log(quizObject.choices[choiceIndex], quizObject.answer);
+    // correct answer quiz_object.answer
+    // console.log(choiceIndex);
 } 
