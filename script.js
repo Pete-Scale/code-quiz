@@ -1,4 +1,4 @@
-var allQuestions = [
+var quiz = [
     {
         question: "What does HTML stand for?",
         choices:  ["Hypertext Markup Link", "Hyperlink Text Markdown Language", "Hypertext Markup Language", "Handle These Mean Letters"],
@@ -49,9 +49,27 @@ var allQuestions = [
 var startBtn = document.getElementById('start-btn')
 var instructions = document.getElementById('instructions')
 var quizContainer = document.getElementById('quiz-container')
+var questionElement = document.getElementById('question')
+var choiceBtnElement = document.querySelector('.choice-btn')
+var currentQuestion = 0;
 
 
-startBtn.addEventListener('click', startQuiz)
+function getQuestion (quiz_idx) {
+    // Get the our quiz object from our quiz array by using the objects position in the array
+    var quiz_object = quiz[quiz_idx];
+    
+    console.log(quiz_object);
+    // assign quiz_object values to our html form
+}
+getQuestion(0)
+getQuestion(1)
+
+function nextQuestion(){
+    //Get next question
+    getQuestion(currentQuestion);
+    //Update our current question number
+    currentQuestion +=1;
+}
 
 function startQuiz() {
     console.log('Started')
@@ -60,10 +78,4 @@ function startQuiz() {
     quizContainer.classList.remove('hide')
 }
 
-function nextQuestion(){
-
-}
-
-function selectAnswer(){
-
-}
+startBtn.addEventListener('click', startQuiz)
