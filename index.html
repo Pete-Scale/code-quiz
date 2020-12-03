@@ -10,6 +10,7 @@
     <header>
         <h1>Code Quiz!</h1>
     </header>
+
     <section id="scoreTime">
         <div class="scoreTimeDivs">
             <p class="scoreTimePs">SCORE</p>
@@ -37,13 +38,17 @@
                 <button id="choice3" class="choice-btn btn" onclick="choiceSelection(3)">d</button>
             </div>
             <div id="controlsFooter">
+                <!-- Hidden by default -->
                 <button id="next-btn" class="btn controls hide" onclick="nextQuestion()">NEXT</button>
+                <!-- Hidden by default -->
                 <button id="finish-btn" class="btn controls hide" onclick="finishQuiz()">FINISH</button>
                 <p id="feedback" class="hide">feedback</p>
             </div>
         </section>
     </main>
+
         <button id="start-btn" class="btn" onclick="startQuiz()">START</button>
+
     <script src="./script.js"></script>
 </body>
 </html>

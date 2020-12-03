@@ -49,13 +49,13 @@ var quiz = [
 var startBtn = document.getElementById('start-btn');
 var nextBtn = document.getElementById('next-btn');
 var finishBtn = document.getElementById('finish-btn');
-var feedback = document.getElementById('feedback');
 var instructions = document.getElementById('instructions');
 var quizContainer = document.getElementById('quiz-container');
 var questionElement = document.getElementById('question');
+var feedback = document.getElementById('feedback');
+var scoreElement = document.getElementById('scoreNum')
 var currentQuestion = 0;
-var score = 0;
-
+var scoreCount = 0;
 
 function getQuestion (quizIndex) {
     //Get our quiz object from our quiz array by using the objects position in the array
@@ -95,15 +95,15 @@ function finishQuiz() {
 function choiceSelection(choiceIndex) {
     //Get quiz_object for current question to verify answer
     var quizObject = quiz[currentQuestion];
-
+    //Hide Correct! or Wrong! for next question
     feedback.classList.remove('hide')
     //Feedback correct or wrong after each choice
     if (quizObject.choices[choiceIndex] === quizObject.answer) {
         feedback.innerText = 'Correct!'
-        console.log('Correct!')
+        scoreCount = (scoreCount + 10);
+        scoreElement.innerText = scoreCount
     } else {
         feedback.innerText = 'Wrong!'
-        console.log('Wrong!')
     }
     for (var i = 0; i < quizObject.choices.length; i++) {
         var choice = quizObject.choices[i];
