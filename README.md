@@ -17,15 +17,12 @@ Use JavaScript to create a quiz that tests the user on their code knowledge.
 
 ## Description
 
-Created a randomly generated password that takes into account several users choices:
+Take a timed quiz on coding fundamentals that stores high scores so that I can gauge my progress compared to my peers
 
-* length of password
-* include lowercase letters
-* include uppercase letters
-* include numbers
-* include special characters
-
-This way I can create a strong password that provides greater security based on these user preferences.
+* Start the quiz
+* Answer the multiple choice questions before the time runs out
+* Once finished submit your name to save your score
+* Checkout the other users scores to compare how you did
 
 ---
 
