@@ -63,9 +63,7 @@ var highScoresArray = JSON.parse(localStorage.getItem('nameInput')) || [];
 var scoreElement = document.getElementById('scoreNum');
 var scoreCount = 0;
 var timeElement = document.getElementById('timeNum');
-var startingSeconds = 60;
-
-
+var secondsRemaining = 60;
 
 // var secondsLeft = 60;
 // var secondsElapsed = 0;
@@ -87,9 +85,14 @@ function getQuestion (quizIndex) {
 function startQuiz() {
     // Start timer countdown
     interval = setInterval(function() {
-        startingSeconds--;
-        timeElement.innerText = (startingSeconds);
-      }, 1000);
+        if (secondsRemaining > 0) {
+            secondsRemaining--;
+            timeElement.innerText = (secondsRemaining);
+        } else {
+            secondsRemaining = 0
+            finishQuiz()
+        }
+    }, 1000);
     console.log('Started');
     // Hide start button and instruction and show quiz
     startBtn.classList.add('hide');
