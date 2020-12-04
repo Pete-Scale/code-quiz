@@ -28,6 +28,10 @@ Take a timed quiz on coding fundamentals that stores high scores so that I can g
 
 ## Features
 
+* Instructions for quiz
+
+* Different visible sections that show and hide in the main container for the pre-quiz, quiz, after-quiz, and high score sections
+
 * Click-able "Start" button
 
 * Click-able "Choice" buttons
@@ -36,7 +40,17 @@ Take a timed quiz on coding fundamentals that stores high scores so that I can g
 
 * Click-able "Next" button that appears after your choice
 
-* 
+* Click-able "Finish" button
+
+* Score counter
+
+* Time counter
+
+* Input field to save your name
+
+* Click-able "Submit" button to save "Name" and save "Score" to local storage
+
+* Click-able "High Score" button to view previous user high scores pulled from local storage
 
 
 ---
@@ -49,15 +63,17 @@ Take a timed quiz on coding fundamentals that stores high scores so that I can g
 
     * You have 60 seconds to finish the quiz
 
-* You click a choice before being able to proceed to the next question
+* Click a choice before being able to proceed to the next question
 
     * Once you choose an answer the quiz notifies you if you are correct or wrong
 
+    * For every question you answer right 10 points are added to your score
+
     * For every question you answer wrong 10 seconds is subtracted from your remaining time
 
-* Once you have answered all the questions and click finish, or run out of time, the quiz is done
+* Once you have answered all the questions and click the finish button, or run out of time, the quiz is done
 
-    * Type in your name and click submit to save your score
+    * Type in your name and click the submit button to save your score
 
 * Click the high score button to view all the high scores
 
@@ -70,3 +86,9 @@ Special thanks to Josh and the gang for their help!
 Also thanks to my sister for helping me think through the some of logic when my brain turned to soup!
 
 https://www.w3schools.com/
+
+https://stackoverflow.com/questions/17087636/how-to-save-data-from-a-form-with-html5-local-storage
+
+https://www.youtube.com/watch?v=riDzcEQbX6k
+
+https://www.youtube.com/watch?v=LQGTb112N_c
