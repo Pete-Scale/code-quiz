@@ -28,27 +28,38 @@ Take a timed quiz on coding fundamentals that stores high scores so that I can g
 
 ## Features
 
-* Click-able "Generate Password" button
+* Click-able "Start" button
 
-* Prompt for desired password length from of at least 8 characters and no more than 128 characters long
+* Click-able "Choice" buttons
 
-    * If USER enters password length as anything other than a number from the set range then the page is refreshed after the character type prompts and no password is generated (must click the button again)
+* Feedback immediately if your choice is the correct answer
 
-* Prompt to choose whether to include lowercase, uppercase, numeric, and/or special characters after the desired password length is chosen
+* Click-able "Next" button that appears after your choice
 
-    * If USER chooses to include none of the characters then the page is refreshed and no password is generated (must click the button again)
+* 
 
-* Generated password is displayed on to the page in the "Your Secure Password" field
 
 ---
 
 ## Usage
 
-* Click the "Generate Password" button to trigger the password criteria prompts
+* Click the start button to start the quiz
 
-* Once the criteria prompts are appropriately answered a password is generated based on your answers
+* Once the start button is clicked the timer starts
 
-* To create a different password just click the "Generate Password" button again!
+    * You have 60 seconds to finish the quiz
+
+* You click a choice before being able to proceed to the next question
+
+    * Once you choose an answer the quiz notifies you if you are correct or wrong
+
+    * For every question you answer wrong 10 seconds is subtracted from your remaining time
+
+* Once you have answered all the questions and click finish, or run out of time, the quiz is done
+
+    * Type in your name and click submit to save your score
+
+* Click the high score button to view all the high scores
 
 ---
 

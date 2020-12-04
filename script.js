@@ -61,8 +61,9 @@ var msgAlert = document.getElementById("msgAlert");
 var highScoresContainer = document.getElementById('highScoresContainer');
 var highScoreList = document.getElementById('highScoreList')
 var highScoresArray = JSON.parse(localStorage.getItem('nameInput')) || [];
-var totalSeconds = 0;
+var secondsLeft = 60;
 var secondsElapsed = 0;
+var interval;
 
 function getQuestion (quizIndex) {
     //Get our quiz object from our quiz array by using the objects position in the array
@@ -77,6 +78,9 @@ function getQuestion (quizIndex) {
 }
 
 function startQuiz() {
+    interval = setInterval(function() {
+        console.log(secondsLeft)
+      }, 1000);
     console.log('Started');
     startBtn.classList.add('hide');
     instructions.classList.add('hide');
