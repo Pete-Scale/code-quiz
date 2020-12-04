@@ -1,3 +1,4 @@
+// Quiz questions, choices, and answers
 var quiz = [
     {
         question: "What does HTML stand for?",
@@ -61,14 +62,15 @@ var msgAlert = document.getElementById("msgAlert");
 var highScoresContainer = document.getElementById('highScoresContainer');
 var highScoreList = document.getElementById('highScoreList')
 var highScoresArray = JSON.parse(localStorage.getItem('nameInput')) || [];
-var secondsLeft = 60;
-var secondsElapsed = 0;
-var interval;
+
+// var secondsLeft = 60;
+// var secondsElapsed = 0;
+// var interval;
 
 function getQuestion (quizIndex) {
-    //Get our quiz object from our quiz array by using the objects position in the array
+    // Get quiz object from quiz array by using the objects position in the array
     var quizObject = quiz[quizIndex];
-    //Assign quiz_object values to our html
+    // Assign quiz object values to our html question and buttons
     questionElement.innerText = quizObject['question'];
     for (var i = 0; i < quizObject.choices.length; i++) {
         var choice = quizObject.choices[i];
@@ -78,33 +80,34 @@ function getQuestion (quizIndex) {
 }
 
 function startQuiz() {
-    interval = setInterval(function() {
-        console.log(secondsLeft)
-      }, 1000);
+    // interval = setInterval(function() {
+    //     console.log(secondsLeft)
+    //   }, 1000);
     console.log('Started');
+    // Hide start button and instruction and show quiz
     startBtn.classList.add('hide');
     instructions.classList.add('hide');
     quizContainer.classList.remove('hide');
-    //Start at default, 0, question
+    // Start at default question 0
     getQuestion(currentQuestion);
 }
 
 function nextQuestion() {
-    //Update our current question number
+    //Update current question number
     currentQuestion +=1;  
     //Get next question
     getQuestion(currentQuestion);
-    //Re-hide next button
+    //Re-hide next button and feedback
     nextBtn.classList.add('hide');
     feedback.classList.add('hide')
 }
 
 function choiceSelection(choiceIndex) {
-    //Get quiz_object for current question to verify answer
+    // Get quiz_object for current question to verify answer
     var quizObject = quiz[currentQuestion];
-    //Hide Correct! or Wrong! for next question
+    // Unhide Correct! or Wrong!
     feedback.classList.remove('hide')
-    //Feedback correct or wrong after each choice
+    // Get feedback Correct! or Wrong! after each choice
     if (quizObject.choices[choiceIndex] === quizObject.answer) {
         feedback.innerText = 'Correct!'
         //Adds 10 to your score for every correct answer
@@ -117,14 +120,11 @@ function choiceSelection(choiceIndex) {
         var choice = quizObject.choices[i];
         document.getElementById('choice'+ i).disabled = true;
     }
-    //Question before last, prepare for final question
+    // Change next button to finish button for last question
     if ((currentQuestion + 1) === quiz.length) {
-        //Show finish button
         finishBtn.classList.remove('hide');
-        //Hide next button
         nextBtn.classList.add('hide');
     } else {
-        //Show next button
         nextBtn.classList.remove('hide');
     }
     console.log(quizObject.choices[choiceIndex], quizObject.answer);
@@ -141,7 +141,7 @@ function displayMessage(type, message) {
     msgAlert.setAttribute("class", type);
 }
 
-function submitNameScore(event){
+function setHighScore(event){
     event.preventDefault();
     var nameInput = document.getElementById('nameInput').value;
     if (nameInput === "") {
@@ -159,14 +159,14 @@ function getHighScores(event){
     if (nameInput === null || scoreNum === null) {
         return;
     }
-    for (var i = 0; i < highScoresArray.length; i++) {
+    // Orders high scores by newest to oldest
+    for (var i = (highScoresArray.length - 1); i >= 0 ; i--) {
         var li = document.createElement('li');
         li.innerText = highScoresArray[i];
         highScoreList.appendChild(li);
     }
-    //Show high scores
+    // Show high scores and hide finish screen
     highScoresContainer.classList.remove('hide');
-    //Hide finish screen
     finishedForm.classList.add('hide');
     console.log(nameInput, scoreNum);
 }
