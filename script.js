@@ -61,6 +61,8 @@ var msgAlert = document.getElementById("msgAlert");
 var highScoresContainer = document.getElementById('highScoresContainer');
 var highScoreList = document.getElementById('highScoreList')
 var highScoresArray = JSON.parse(localStorage.getItem('nameInput')) || [];
+var totalSeconds = 0;
+var secondsElapsed = 0;
 
 function getQuestion (quizIndex) {
     //Get our quiz object from our quiz array by using the objects position in the array

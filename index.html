@@ -37,7 +37,7 @@
                 <button id="choice2" class="choice-btn btn" onclick="choiceSelection(2)">c</button>
                 <button id="choice3" class="choice-btn btn" onclick="choiceSelection(3)">d</button>
             </div>
-            <div id="controlsFooter">
+            <div id="controls-container">
                 <!-- Hidden by default -->
                 <button id="next-btn" class="btn controls hide" onclick="nextQuestion()">NEXT</button>
                 <!-- Hidden by default -->
@@ -48,7 +48,7 @@
         <!-- Hidden by default -->
         <section id="finishedForm" class="hide">
             <form method="POST" id="nameForm">
-                <label for="nameInput" id="nameText">Congratulations on completing the quiz! Type in your name and click submit to save your high score!</label>
+                <label for="nameInput" id="endInstructions">Congratulations on completing the quiz! Type in your name and click submit to save your high score!</label>
                 <input type="text" name="nameInput" id="nameInput" value="">
                 <!-- Alert message if no name is filled out -->
                 <div id="msgAlert"></div>

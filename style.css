@@ -8,6 +8,7 @@ h1 {
     color: mintcream;
 }
 
+/* Styles the sore and time container */
 #scoreTime {
     display: inline-flex;
     justify-content: space-between;
@@ -21,10 +22,12 @@ h1 {
     padding: 0.5rem;
 }
 
+/* Styles the sore and time divs positioning */
 .scoreTimeDivs {
     display: inline-flex;
 }
 
+/* Styles the positioning of the score and time text */
 .scoreTimePs {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -89,45 +92,58 @@ body {
     background-color: rgb(74, 221, 94);
 }
 
-#controlsFooter {
+/* Styles the container format */
+#controls-container {
     display: inline-flex;
 }
 
+/* Styles the control buttons */
 .controls {
     text-align: center;
     font-size: 1rem;
     border-radius: 0.5rem;
     margin-top: 0.5rem;
     font-weight: 600;
+}
+
+/* Sets the starting color of the next button */
+#next-btn {
     background-color: rgb(244, 247, 121);
 }
 
+/* Changes the color of the next button when hovered */
 #next-btn:hover {
     background-color: rgb(230, 233, 49);
 }
 
+/* Sets the starting color of the finish button */
 #finish-btn {
     background-color: rgb(250, 128, 107);
 }
 
+/* Changes the color of the finish button when hovered */
 #finish-btn:hover {
     background-color: rgb(224, 75, 49);
 }
 
+/* Styles the Correct or Wrong text feedback */
 #feedback {
     font-style: italic;
     margin-left: 1rem;
 }
 
+/* Styles the form to submit your name */
 #nameForm {
     display: grid;
     justify-content: center;
 }
 
-#nameText {
+/* Styles the end instructions*/
+#endInstructions {
     margin-bottom: 1rem;
 }
 
+/* Styles alert message for submitting name */
 #msgAlert {
     margin: 0.2rem;
     font-style: italic;
