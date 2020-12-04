@@ -53,16 +53,19 @@ var finishBtn = document.getElementById('finish-btn');
 var instructions = document.getElementById('instructions');
 var quizContainer = document.getElementById('quiz-container');
 var questionElement = document.getElementById('question');
-var feedback = document.getElementById('feedback');
-var scoreElement = document.getElementById('scoreNum');
 var currentQuestion = 0;
-var scoreCount = 0;
+var feedback = document.getElementById('feedback');
 var finishedForm = document.getElementById('finishedForm');
 var msgAlert = document.getElementById("msgAlert");
 var highScoresContainer = document.getElementById('highScoresContainer');
 var highScoreList = document.getElementById('highScoreList')
 var highScoresArray = JSON.parse(localStorage.getItem('nameInput')) || [];
+var scoreElement = document.getElementById('scoreNum');
+var scoreCount = 0;
+var timeElement = document.getElementById('timeNum');
 var startingSeconds = 60;
+
+
 
 // var secondsLeft = 60;
 // var secondsElapsed = 0;
@@ -82,9 +85,11 @@ function getQuestion (quizIndex) {
 
 // Called from our start button in HTML
 function startQuiz() {
-    // interval = setInterval(function() {
-    //     console.log(secondsLeft)
-    //   }, 1000);
+    // Start timer countdown
+    interval = setInterval(function() {
+        startingSeconds--;
+        timeElement.innerText = (startingSeconds);
+      }, 1000);
     console.log('Started');
     // Hide start button and instruction and show quiz
     startBtn.classList.add('hide');
