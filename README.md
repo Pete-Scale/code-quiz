@@ -1,8 +1,8 @@
 # Code-Quiz README
 
-![Pete Scale Webpage](./Assets/password_generator.png)
+![Code Quiz Image](./assets/code-quiz-img.png)
 
-Used JavaScript to create a random password generator.
+Use JavaScript to create a quiz that tests the user on their code knowledge.
 
 ## Table of Contents
 [Description](#description)
@@ -62,9 +62,3 @@ Special thanks to Josh and the gang for their help!
 Also thanks to my sister for helping me think through the some of logic when my brain turned to soup!
 
 https://www.w3schools.com/
-
-https://www.ascii-code.com/
-
-https://www.youtube.com/watch?v=iKo9pDKKHnc&t=309s
-
-https://stackoverflow.com/questions/3715047/how-to-reload-a-page-using-javascript
