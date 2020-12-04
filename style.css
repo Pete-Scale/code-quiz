@@ -14,7 +14,7 @@ h1 {
     justify-content: space-between;
     max-width: 50%;
     min-width: 50%;
-    font-size: 0.5rem;
+    font-size: 0.8rem;
     font-weight: 500;
     background-color: mintcream;
     margin-bottom: 0.5rem;
@@ -44,13 +44,14 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Styles the main container the instructions and quiz are in */
+/* Styles the main container the instructions, the quiz, the finish screen, and the high scores screen are in */
 .container {
     max-width: 50%;
     min-width: 50%;
     background-color: mintcream;
     border-radius: 0.5rem;
     padding: 1rem;
+    font-size: 1rem;
 }
 
 /* Styles the question */

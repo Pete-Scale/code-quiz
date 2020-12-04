@@ -62,6 +62,7 @@ var msgAlert = document.getElementById("msgAlert");
 var highScoresContainer = document.getElementById('highScoresContainer');
 var highScoreList = document.getElementById('highScoreList')
 var highScoresArray = JSON.parse(localStorage.getItem('nameInput')) || [];
+var startingSeconds = 60;
 
 // var secondsLeft = 60;
 // var secondsElapsed = 0;
@@ -79,6 +80,7 @@ function getQuestion (quizIndex) {
     }
 }
 
+// Called from our start button in HTML
 function startQuiz() {
     // interval = setInterval(function() {
     //     console.log(secondsLeft)
@@ -92,6 +94,7 @@ function startQuiz() {
     getQuestion(currentQuestion);
 }
 
+// Called from our next button in HTML
 function nextQuestion() {
     //Update current question number
     currentQuestion +=1;  
@@ -130,6 +133,7 @@ function choiceSelection(choiceIndex) {
     console.log(quizObject.choices[choiceIndex], quizObject.answer);
 } 
 
+// Called from our finish button in HTML
 function finishQuiz() {
     quizContainer.classList.add('hide');
     finishedForm.classList.remove('hide')
@@ -143,6 +147,7 @@ function displayMessage(type, message) {
 
 function setHighScore(event){
     event.preventDefault();
+    // Prevent user from submitting an empty field for a name
     var nameInput = document.getElementById('nameInput').value;
     if (nameInput === "") {
         displayMessage("error", "Name cannot be blank");
