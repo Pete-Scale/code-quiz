@@ -64,10 +64,24 @@ var scoreElement = document.getElementById('scoreNum');
 var scoreCount = 0;
 var timeElement = document.getElementById('timeNum');
 var secondsRemaining = 60;
+var interval;
 
-// var secondsLeft = 60;
-// var secondsElapsed = 0;
-// var interval;
+
+function startTimer(){
+    interval = setInterval(function() {
+        if (secondsRemaining > 0) {
+            secondsRemaining--;
+            timeElement.innerText = (secondsRemaining);
+        } else {
+            secondsRemaining = 0
+            finishQuiz()
+        }
+    }, 1000);
+}
+
+function stopTimer(){
+    clearInterval(interval);
+}
 
 function getQuestion (quizIndex) {
     // Get quiz object from quiz array by using the objects position in the array
@@ -81,22 +95,18 @@ function getQuestion (quizIndex) {
     }
 }
 
-// Start timer countdown
-function startTimer(){
-    interval = setInterval(function() {
-        if (secondsRemaining > 0) {
-            secondsRemaining--;
-            timeElement.innerText = (secondsRemaining);
-        } else {
-            secondsRemaining = 0
-            finishQuiz()
-        }
-    }, 1000);
+// Called from our finish button in HTML
+function finishQuiz() {
+    stopTimer();
+    quizContainer.classList.add('hide');
+    finishedForm.classList.remove('hide');
+    console.log("I'm finished")
 }
 
 // Called from our start button in HTML
 function startQuiz() {
-    startTimer();
+    // Start timer countdown
+    startTimer()
     console.log('Started');
     // Hide start button and instruction and show quiz
     startBtn.classList.add('hide');
@@ -133,9 +143,13 @@ function choiceSelection(choiceIndex) {
         // Deduct 10 seconds for wrong answers
         secondsRemaining = secondsRemaining - 10;
         timeElement.innerText = (secondsRemaining);
+        // Timer won't go below zero
+        if (secondsRemaining < 0){
+            timeElement.innerText = 0;
+        }
     }
+    // Disable choices after a choice is selected
     for (var i = 0; i < quizObject.choices.length; i++) {
-        var choice = quizObject.choices[i];
         document.getElementById('choice'+ i).disabled = true;
     }
     // Change next button to finish button for last question
@@ -147,13 +161,6 @@ function choiceSelection(choiceIndex) {
     }
     console.log(quizObject.choices[choiceIndex], quizObject.answer);
 } 
-
-// Called from our finish button in HTML
-function finishQuiz() {
-    quizContainer.classList.add('hide');
-    finishedForm.classList.remove('hide')
-    console.log("I'm finished")
-}
 
 function displayMessage(type, message) {
     msgAlert.textContent = message;
