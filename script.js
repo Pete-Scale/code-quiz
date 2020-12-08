@@ -81,9 +81,8 @@ function getQuestion (quizIndex) {
     }
 }
 
-// Called from our start button in HTML
-function startQuiz() {
-    // Start timer countdown
+// Start timer countdown
+function startTimer(){
     interval = setInterval(function() {
         if (secondsRemaining > 0) {
             secondsRemaining--;
@@ -93,6 +92,11 @@ function startQuiz() {
             finishQuiz()
         }
     }, 1000);
+}
+
+// Called from our start button in HTML
+function startQuiz() {
+    startTimer();
     console.log('Started');
     // Hide start button and instruction and show quiz
     startBtn.classList.add('hide');
@@ -121,11 +125,14 @@ function choiceSelection(choiceIndex) {
     // Get feedback Correct! or Wrong! after each choice
     if (quizObject.choices[choiceIndex] === quizObject.answer) {
         feedback.innerText = 'Correct!'
-        //Adds 10 to your score for every correct answer
+        // Adds 10 to your score for every correct answer
         scoreCount = (scoreCount + 10);
         scoreElement.innerText = scoreCount
     } else {
         feedback.innerText = 'Wrong!'
+        // Deduct 10 seconds for wrong answers
+        secondsRemaining = secondsRemaining - 10;
+        timeElement.innerText = (secondsRemaining);
     }
     for (var i = 0; i < quizObject.choices.length; i++) {
         var choice = quizObject.choices[i];
