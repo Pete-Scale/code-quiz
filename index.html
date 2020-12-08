@@ -49,6 +49,8 @@
         <section id="finishedForm" class="hide">
             <form method="POST" id="nameForm">
                 <label for="nameInput" id="endInstructions">Congratulations on completing the quiz! Type in your name and click submit to save your high score!</label>
+                <!-- Hidden by default -->
+                <label for="nameInput" id="timesUpInstructions" class="hide">Oh no! You ran out of time! Type in your name and click submit to save your high score!</label>
                 <input type="text" name="nameInput" id="nameInput" value="">
                 <!-- Alert message if no name is filled out -->
                 <div id="msgAlert"></div>

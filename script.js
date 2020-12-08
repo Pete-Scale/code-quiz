@@ -56,6 +56,8 @@ var questionElement = document.getElementById('question');
 var currentQuestion = 0;
 var feedback = document.getElementById('feedback');
 var finishedForm = document.getElementById('finishedForm');
+var endInstructions = document.getElementById('endInstructions');
+var timesUpInstructions = document.getElementById('timesUpInstructions');
 var msgAlert = document.getElementById("msgAlert");
 var highScoresContainer = document.getElementById('highScoresContainer');
 var highScoreList = document.getElementById('highScoreList')
@@ -67,20 +69,30 @@ var secondsRemaining = 60;
 var interval;
 
 
-function startTimer(){
+function startTimer() {
     interval = setInterval(function() {
         if (secondsRemaining > 0) {
             secondsRemaining--;
             timeElement.innerText = (secondsRemaining);
         } else {
-            secondsRemaining = 0
-            finishQuiz()
+            secondsRemaining = 0;
+            timesUpFinishQuiz();
         }
     }, 1000);
 }
 
-function stopTimer(){
+// Called from our finish button in HTML
+function finishQuiz() {
+    // Stops the timer
     clearInterval(interval);
+    quizContainer.classList.add('hide');
+    finishedForm.classList.remove('hide');
+}
+
+function timesUpFinishQuiz() {
+    finishQuiz();
+    endInstructions.classList.add('hide');
+    timesUpInstructions.classList.remove('hide');
 }
 
 function getQuestion (quizIndex) {
@@ -95,19 +107,10 @@ function getQuestion (quizIndex) {
     }
 }
 
-// Called from our finish button in HTML
-function finishQuiz() {
-    stopTimer();
-    quizContainer.classList.add('hide');
-    finishedForm.classList.remove('hide');
-    console.log("I'm finished")
-}
-
 // Called from our start button in HTML
 function startQuiz() {
     // Start timer countdown
     startTimer()
-    console.log('Started');
     // Hide start button and instruction and show quiz
     startBtn.classList.add('hide');
     instructions.classList.add('hide');
