@@ -4,6 +4,12 @@
 
 Use JavaScript to create a quiz that tests the user on their code knowledge.
 
+## Link
+
+https://pete-scale.github.io/code-quiz/
+
+---
+
 ## Table of Contents
 [Description](#description)
 
